@@ -1,0 +1,26 @@
+# ~~~ Folders ~~~
+# VS Code data
+/.vscode
+
+# MyPy
+/.mypy_cache
+
+# pytest
+.pytest_cache
+
+/notes
+/data
+
+
+# ~~~ Files ~~~
+# Compiled python modules
+*__pycache__*
+*.pyc
+
+# Log files
+*.log
+
+# sql files
+*.sqlite
+
+*.zip
