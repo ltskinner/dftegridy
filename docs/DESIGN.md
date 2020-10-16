@@ -1,5 +1,15 @@
 # Design Decisions
 
+## Why is there no dedicated BOOLEAN value
+
+Boolean values can come in many forms:
+
+* 0,1
+* T,F
+* True,False
+
+CATEGORICAL will cover these just fine
+
 ## Why dftegrity.dunits.__init__.py uses 'global' variables
 
 The import convention of:
