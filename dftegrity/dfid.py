@@ -114,6 +114,8 @@ class DFID(object):
     def load_profile(self, dfid_profile_path):
         with open(dfid_profile_path, 'r') as stream:
             self.dfid_profile = yaml.safe_load(stream)
+        
+        return self.dfid_profile
 
     def _verify_no_extra_cols(self, df):
         error_report = []
