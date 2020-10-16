@@ -2,6 +2,10 @@
 
 Ensure your dataframes have some 'tegrity
 
+## 🚧 UNDER CONSTRUCTION 🚧
+
+There are likely some debug print statements as well as unfinalized data structures, so if any bugs arise please be understanding
+
 ## Tests
 
 ## License
