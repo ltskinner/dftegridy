@@ -10,6 +10,14 @@ Boolean values can come in many forms:
 
 CATEGORICAL will cover these just fine
 
+## Why do YYYYMM and YYYYQQ lead with year
+
+For YYYYMM, when the string or int value is sorted, it gets sorted first by year and then by month
+
+For YYYYQQ, the YYYYqX format is standard in the business world. I dont see any value in leading with the quarter values like Q4YYYY or 4QYYYY for the same sorting reason listed above
+
+**If you feel strongly about having the year trail, please feel free to make a custom `DataUnit`to meet your needs**
+
 ## Why dftegrity.dunits.__init__.py uses 'global' variables
 
 The import convention of:
