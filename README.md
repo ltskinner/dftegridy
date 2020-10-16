@@ -6,6 +6,11 @@ Ensure your dataframes have some 'tegrity
 
 There are likely some debug print statements as well as unfinalized data structures, so if any bugs arise please be understanding
 
+## Contributions
+
+* Please extend the abstract `DataUnit` class for any new data types
+* For data unit types that dont fall into a grouping of the existing dunit modules, please make a new file. Organization is important and minimizes merge conflicts
+
 ## Tests
 
 ## License
