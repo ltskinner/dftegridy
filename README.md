@@ -53,7 +53,7 @@ profile = dfid.profile(original_df)
 dfid.save_profile(dfid_profile_path)
 ```
 
-Which will produce a proflile:
+Which will produce a profile for the configured columns:
 
 ```yaml
 record_id:
