@@ -6,7 +6,93 @@ Ensure your dataframes have some 'tegrity
 
 There are likely some debug print statements as well as unfinalized data structures, so if any bugs arise please be understanding
 
+## When to use dftegrity
+
+### Data Engineering
+
+Most datasets and databases are expected to grow. Before inserting any new data to your database, wouldnt it be nice to know if the new data had a critical defect that would compromise the integrity of the existing data?
+
+### Analytics
+
+Before deploying a new version of an app, or adding new data to the production server, having a tool to check that the new data meets human and programmed expectations is critical for ensuring safe, reliable, and consistent deployments
+
+### Artificial Intelligence and Data Science
+
+Rarely in AI and DS performed outside of the lab will you train a model on a dataset and then use data from that same source for inference...
+
+Use `dftegrity` as a tool to verify that wild input data is within the expected bounds of your training data, and capture outliers as soon as they appear
+
 ## Workflow
+
+### 1 - Profile the DF you want to verify
+
+```python
+import pandas as pd
+import dftegrity
+
+
+original_df = pd.DataFrame({
+    'record_id': [1, 2, 3, 4, 5],
+    'name': ['Joe', 'John', 'David', 'Brett', 'Richard'],
+    'occupation': ['Carpenter', 'Carpenter', 'Surveyor', 'Driver', 'Mechanic'],
+})
+
+# 1 - Configure the Data Units of the columns
+dunit_config = {
+    'record_id': dftegrity.dunits.ID_UNIQUE,
+    'name': dftegrity.dunits.LABEL,
+    'occupation': dftegrity.dunits.CATEGORICAL,
+}
+
+# 2 - Create DFID object, profile the data, and save the profile
+dfid_profile_path = './example_simple_dfid_profile.yaml'
+dfid = dftegrity.DFID(dunit_config=dunit_config)
+profile = dfid.profile(original_df)
+dfid.save_profile(dfid_profile_path)
+```
+
+[View the generated profile here](./example_simple_dfid_profile.yaml)
+
+### 2 - Verify a newly updated DF against the baseline profile
+
+```python
+import pandas as pd
+import dftegrity
+
+
+compare_df = pd.DataFrame({
+    'record_id': [6, 7],
+    'name': ['Paul', 'Jacob'],
+    'occupation': ['Driver', 'Technician'],
+    'random_new_col': ['something', 'anotherthing'],
+})
+
+# 1 - Load the expected profile of your DF
+dfid_profile_path = './example_simple_dfid_profile.yaml'
+dfid = dftegrity.DFID()
+profile = dfid.load_profile(dfid_profile_path)
+
+# 2 - Verify the new DF and review the report for inconsistencies
+report = dfid.verify(compare_df, skip_unverified=False)  # defaults to True
+print(report)
+```
+
+Which will produce something like:
+
+```txt
+--> columns:
+  info - New column added
+  info - Expected column order != new column order
+        - Disregard if column order does not matter
+
+--> occupation:
+  info - Unexpected categorical values:
+    [
+      'Technician'
+    ]
+```
+
+### [See advanced usage here](./docs/ADVANCED_USAGE.md)
 
 ## Catalogued Data Units
 
@@ -49,6 +135,6 @@ Inside `dftegrity.dunits` there is a subpackage called `dateinfer`
 
 **This package was not created by me**, it was created by **@jeffreystar** and source can be found at [https://github.com/jeffreystarr/dateinfer](https://github.com/jeffreystarr/dateinfer)
 
-The reason this package is embedded as source instead of being sourced from PyPi is because there are early version python relative imports that make the package **unusable in its distributed state**
+The reason this package is embedded as source instead of being installed from PyPi is because there are early version python relative imports that make the package **unusable in its distributed state**
 
 **The only modifications to the version here are the relative imports have been updated - all credit for the package goes to @jeffreystar**
