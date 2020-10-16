@@ -220,6 +220,7 @@ class DFID(object):
         return self.dfid_report
     
     def print_verification_report(self):
+        # notest, this is going to change
         print('~~~~ DFID Verification Report ~~~~')
         '''
         dfid_clean_dict = self._clean_dict_structure(self.dfid_report)
