@@ -53,7 +53,28 @@ profile = dfid.profile(original_df)
 dfid.save_profile(dfid_profile_path)
 ```
 
-[View the generated profile here](./example_simple_dfid_profile.yaml)
+Which will produce a proflile:
+
+```yaml
+record_id:
+  dtype: int64
+  hasna: false
+  dunit: id_unique
+  count: 5
+name:
+  dtype: object
+  hasna: false
+  dunit: label
+occupation:
+  dtype: object
+  hasna: false
+  dunit: categorical
+  values:
+  - Carpenter
+  - Driver
+  - Mechanic
+  - Surveyor
+```
 
 ### 2 - Verify a newly updated DF against the baseline profile
 
