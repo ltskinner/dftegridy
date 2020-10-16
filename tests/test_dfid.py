@@ -1,7 +1,7 @@
 
 import pytest
 
-from dftegrity import DFID
+from dftegridy import DFID
 
 
 def test__confirm_dunit_config_pass():

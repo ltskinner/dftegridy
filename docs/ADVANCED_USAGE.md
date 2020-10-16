@@ -1,4 +1,4 @@
-# Advanced dftegrity usage
+# Advanced dftegridy usage
 
 ## Boilderplace checks
 

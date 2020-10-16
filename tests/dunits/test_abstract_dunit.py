@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from datetime import datetime
 
-from dftegrity.dunits.abstract_dunit import (
+from dftegridy.dunits.abstract_dunit import (
     DataUnit,
     NumericDataUnit,
     DateDataUnit

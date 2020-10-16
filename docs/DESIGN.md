@@ -18,7 +18,7 @@ For YYYYQQ, the YYYYqX format is standard in the business world. I dont see any 
 
 **If you feel strongly about having the year trail, please feel free to make a custom `DataUnit`to meet your needs**
 
-## Why dftegrity.dunits.__init__.py uses 'global' variables
+## Why dftegridy.dunits.__init__.py uses 'global' variables
 
 The import convention of:
 

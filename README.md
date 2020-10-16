@@ -1,12 +1,14 @@
-# dftegrity
+# dftegridy
 
-Ensure your dataframes have some 'tegrity
+Ensure your dataframes have some 'tegridy
 
 ## 🚧 UNDER CONSTRUCTION 🚧
 
 There are likely some debug print statements as well as unfinalized data structures, so if any bugs arise please be understanding
 
-## When to use dftegrity
+## When to use dftegridy
+
+Its about time our dataframes had a little 'tegridy
 
 ### Data Engineering
 
@@ -20,7 +22,7 @@ Before deploying a new version of an app, or adding new data to the production s
 
 Rarely in AI and DS performed outside of the lab will you train a model on a dataset and then use data from that same source for inference...
 
-Use `dftegrity` as a tool to verify that wild input data is within the expected bounds of your training data, and capture outliers as soon as they appear
+Use `dftegridy` as a tool to verify that wild input data is within the expected bounds of your training data, and capture outliers as soon as they appear
 
 ## Workflow
 
@@ -28,7 +30,7 @@ Use `dftegrity` as a tool to verify that wild input data is within the expected 
 
 ```python
 import pandas as pd
-import dftegrity
+import dftegridy
 
 
 original_df = pd.DataFrame({
@@ -39,14 +41,14 @@ original_df = pd.DataFrame({
 
 # 1 - Configure the Data Units of the columns
 dunit_config = {
-    'record_id': dftegrity.dunits.ID_UNIQUE,
-    'name': dftegrity.dunits.LABEL,
-    'occupation': dftegrity.dunits.CATEGORICAL,
+    'record_id': dftegridy.dunits.ID_UNIQUE,
+    'name': dftegridy.dunits.LABEL,
+    'occupation': dftegridy.dunits.CATEGORICAL,
 }
 
 # 2 - Create DFID object, profile the data, and save the profile
 dfid_profile_path = './example_simple_dfid_profile.yaml'
-dfid = dftegrity.DFID(dunit_config=dunit_config)
+dfid = dftegridy.DFID(dunit_config=dunit_config)
 profile = dfid.profile(original_df)
 dfid.save_profile(dfid_profile_path)
 ```
@@ -57,7 +59,7 @@ dfid.save_profile(dfid_profile_path)
 
 ```python
 import pandas as pd
-import dftegrity
+import dftegridy
 
 
 compare_df = pd.DataFrame({
@@ -69,7 +71,7 @@ compare_df = pd.DataFrame({
 
 # 1 - Load the expected profile of your DF
 dfid_profile_path = './example_simple_dfid_profile.yaml'
-dfid = dftegrity.DFID()
+dfid = dftegridy.DFID()
 profile = dfid.load_profile(dfid_profile_path)
 
 # 2 - Verify the new DF and review the report for inconsistencies
@@ -108,7 +110,7 @@ Which will produce something like:
 | | Date | DATE_PATTERN | When you have string values in various pattern formats like: `yyyy-mm-dd` or `dd/mm/yyyy` |
 | | Date | DATE_YEAR | String or numeric `YYYY` years |
 | | Date | DATE_YYYYQQ | String or int `YYYYQQ` values like `2020q1`, `2020Q4`, `20201`, or `202004` |
-| | Date | DATE_QUARTER | String values of any pattern of quarter like: `Quarter 1`, `1 Quarter`, `1Q`, `q2`. If your naming convention pattern doesnt work, dftegrity will let you know |
+| | Date | DATE_QUARTER | String values of any pattern of quarter like: `Quarter 1`, `1 Quarter`, `1Q`, `q2`. If your naming convention pattern doesnt work, dftegridy will let you know |
 | | Date | DATE_YYYYMM | String or int `YYYYMM` values like `202001` for January or `202012` for December |
 | | Date | DATE_MONTH_NAME | String month names like `January` or `Sep`. Note, if you are not using **full names** or the **3 letter** abbreviations, you need to change your naming pattern |
 | | Date | DATE_MONTH_NUMERIC | String or int month numbers like `1`, `7`, etc |
@@ -131,7 +133,7 @@ A note on dates:
 
 ## License
 
-Inside `dftegrity.dunits` there is a subpackage called `dateinfer`
+Inside `dftegridy.dunits` there is a subpackage called `dateinfer`
 
 **This package was not created by me**, it was created by **@jeffreystar** and source can be found at [https://github.com/jeffreystarr/dateinfer](https://github.com/jeffreystarr/dateinfer)
 
