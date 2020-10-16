@@ -1,0 +1,18 @@
+record_id:
+  dtype: int64
+  hasna: false
+  dunit: id_unique
+  count: 5
+name:
+  dtype: object
+  hasna: false
+  dunit: label
+occupation:
+  dtype: object
+  hasna: false
+  dunit: categorical
+  values:
+  - Carpenter
+  - Driver
+  - Mechanic
+  - Surveyor
