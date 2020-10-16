@@ -1,6 +1,6 @@
 # dftegridy
 
-Ensure your dataframes have some 'tegridy
+![alt text](./docs/BANNER.jpg)
 
 ## 🚧 UNDER CONSTRUCTION 🚧
 
