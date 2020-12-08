@@ -34,9 +34,10 @@ class Categorical(DataUnit):
         expected_values = profile['values']
         actual_values = data.unique().tolist()
         unexpected_values = []
+        has_unexpected_na = False
         for value in actual_values:
-            if pd.isna(value) and profile['hasna']:
-                continue
+            if pd.isna(value) and not profile['hasna']:
+                has_unexpected_na = True
 
             if value not in expected_values:
                 unexpected_values.append(value)
@@ -44,6 +45,15 @@ class Categorical(DataUnit):
         unexpected_values = sorted([repr(i) for i in unexpected_values])
 
         error_reports = []
+
+        if has_unexpected_na:
+            msg = f'Found unexpected NaN value'
+            error = {
+                'level': 'info',
+                'msg': msg
+            }
+            error_reports.append(error)
+
         if len(unexpected_values) > 0:
             list_values = ',\n    '.join(unexpected_values)
             list_msg = f'[\n    {list_values}\n]'
