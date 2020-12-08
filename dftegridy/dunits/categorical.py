@@ -18,6 +18,7 @@ class Categorical(DataUnit):
     '''
     @staticmethod
     def _profile_categorical(data):
+        # tested
         values = sorted(data.dropna().unique().tolist())
         profile = {
             'values': values
@@ -31,6 +32,7 @@ class Categorical(DataUnit):
     
     @staticmethod
     def _verify_categorical(data, profile):
+        # tested
         expected_values = profile['values']
         actual_values = data.unique().tolist()
         unexpected_values = []
