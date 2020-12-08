@@ -11,6 +11,7 @@ class ID(DataUnit):
     '''
     @staticmethod
     def _check_na(data):
+        # tested
         msg = '\n'.join([
             'ID series includes na values',
             'dtype ID_XXXXX assumes there are no records with na ID values'
@@ -18,6 +19,7 @@ class ID(DataUnit):
         assert np.isnan(data).any() == False, msg
 
     def profile(self, data):
+        # tested
         self._check_na(data)
 
         count = data.unique().shape[0]
@@ -27,6 +29,7 @@ class ID(DataUnit):
         return profile
     
     def verify(self, data, profile):
+        # tested
         previous_id_count = profile['count']
         current_id_count = data.unique().shape[0]
 
@@ -50,6 +53,7 @@ ID_UNIQUE = 'id_unique'
 class IdUnique(ID):
     @staticmethod
     def _check_unique(data):
+        # tested
         total_id_count = data.shape[0]
         unique_id_count = data.unique().shape[0]
 
@@ -63,10 +67,12 @@ class IdUnique(ID):
         assert total_id_count == unique_id_count, msg
 
     def profile(self, data):
+        # notest
         self._check_unique(data)
         return super().profile(data)
 
     def verify(self, data, profile):
+        # tested
         error_reports = []
     
         total_id_count = data.shape[0]
