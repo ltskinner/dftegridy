@@ -61,6 +61,7 @@ def test_id_verify_fail():
     data = pd.Series([1, 2, 3, 4, 5, 6])
 
     result = dunit.verify(data, profile)
+    # error 1: number of ids grew more than expected threshold
     assert len(result) == 1
     
 
@@ -98,4 +99,6 @@ def test_id_unique_verify_fail():
     }
 
     result = dunit.verify(data, profile)
+    # error 1: number of ids grew more than expected threshold
+    # error 2: duplicated ids
     assert len(result) == 2

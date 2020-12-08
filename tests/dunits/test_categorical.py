@@ -48,4 +48,6 @@ def test__verify_categorical_fail():
     }
 
     result = dunit._verify_categorical(data, profile)
+    # error 1: has na when it shouldnt
+    # error 2: unexpected categorical variable
     assert len(result) == 2
