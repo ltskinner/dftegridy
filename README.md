@@ -126,7 +126,7 @@ Which will produce a `verification report` like:
 | Live | Label | LABEL | Use for anything thats just a cosmetic label and you dont care what the values are |
 | Live | Label | FREE_TEXT | Use for anything that is a long text descriptor. In the future there will be more functionality to check length and character encodings and typical considerations for NLP workflows |
 | Live | Categorical | CATEGORICAL | Categorical values that have a discrete set of approved values. Accounts for various string and integer datatypes. **Use this for BOOLEAN values** |
-| | Measure | MEASURE | Numerical values within and expected range. Basically any int or float that is not an encoding |
+| Live | Measure | MEASURE | Numerical values within and expected range. Basically any int or float that is not an encoding |
 | | Date | DATE_DATETIME | When native `datetime` objects are stored |
 | | Date | DATE_PATTERN | When you have string values in various pattern formats like: `yyyy-mm-dd` or `dd/mm/yyyy` |
 | | Date | DATE_YEAR | String or numeric `YYYY` years |
