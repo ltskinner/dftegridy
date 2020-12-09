@@ -16,6 +16,7 @@ class DataUnit(object):
 
     @staticmethod
     def verify_dtype(data, profile):
+        # tested
         expected = profile['dtype']
         actual = data.dtype
 
@@ -31,6 +32,7 @@ class DataUnit(object):
 
     @staticmethod
     def verify_na(data, profile):
+        # tested
         error_reports = []
         if data.hasnans:
             if not profile['hasna']:
@@ -46,6 +48,7 @@ class DataUnit(object):
 class NumericDataUnit(DataUnit):
     @staticmethod
     def verify_min(actual_min, expected_min, display_name='min'):
+        # tested
         CHANGE_THRESHOLD = .2
         expected_min_threshold = expected_min - (expected_min * CHANGE_THRESHOLD)
 
@@ -63,6 +66,7 @@ class NumericDataUnit(DataUnit):
 
     @staticmethod
     def verify_max(actual_max, expected_max, display_name='max'):
+        # tested
         CHANGE_THRESHOLD = .2
         expected_max_threshold = expected_max + (expected_max * CHANGE_THRESHOLD)
 
@@ -98,6 +102,7 @@ class DateDataUnit(NumericDataUnit):
 
     @staticmethod
     def _verify_range(data, range_min, range_max):
+        # tested
         expected_values = [
             i for i in range(range_min, range_max + 1)
         ]
