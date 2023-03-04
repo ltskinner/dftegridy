@@ -1,0 +1,195 @@
+record_id:
+  dtype: int64
+  hasna: false
+  dunit: id_unique
+  count: 5
+name:
+  dtype: object
+  hasna: false
+  dunit: label
+occupation:
+  dtype: object
+  hasna: false
+  dunit: categorical
+  values:
+  - Carpenter
+  - Driver
+  - Mechanic
+  - Surveyor
+work_hours_per_week:
+  dtype: int64
+  hasna: false
+  dunit: measure
+  min: 25
+  lower_fence_boundary: 45.0
+  q1: 60.0
+  q2: 65.0
+  q3: 70.0
+  upper_fence_boundary: 85.0
+  max: 100
+yyyymm:
+  dtype: int64
+  hasna: false
+  dunit: date_yyyymm
+  min: 2020
+  max: 2020
+  values:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+yyyyqq:
+  dtype: int64
+  hasna: false
+  dunit: date_yyyyqq
+  min: 2020
+  max: 2020
+  values:
+  - '01'
+  - '02'
+  - '03'
+  - '04'
+yyyyqq2:
+  dtype: object
+  hasna: false
+  dunit: date_yyyyqq
+  min: 2020
+  max: 2020
+  values:
+  - q1
+  - q2
+  - q3
+  - q4
+year:
+  dtype: int64
+  hasna: false
+  dunit: date_year
+  min: 2020
+  max: 2020
+description:
+  dtype: object
+  hasna: false
+  dunit: free_text
+quarter:
+  dtype: object
+  hasna: false
+  dunit: date_quarter
+  values:
+  - Quarter 1
+  - Quarter 2
+  - Quarter 3
+  - Quarter 4
+month_numeric:
+  dtype: object
+  hasna: false
+  dunit: date_month_numeric
+  values:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+Month:
+  dtype: object
+  hasna: false
+  dunit: date_month_name
+  values:
+  - January
+  - February
+  - March
+  - April
+  - May
+  - June
+  - July
+  - August
+  - September
+  - October
+  - November
+  - December
+Mon:
+  dtype: object
+  hasna: false
+  dunit: date_month_name
+  values:
+  - Jan
+  - Feb
+  - Mar
+  - Apr
+  - May
+  - Jun
+  - Jul
+  - Aug
+  - Sep
+  - Oct
+  - Nov
+  - Dec
+month:
+  dtype: object
+  hasna: false
+  dunit: date_month_name
+  values:
+  - january
+  - february
+  - march
+  - april
+  - may
+  - june
+  - july
+  - august
+  - september
+  - october
+  - november
+  - december
+mon:
+  dtype: object
+  hasna: false
+  dunit: date_month_name
+  values:
+  - jan
+  - feb
+  - mar
+  - apr
+  - may
+  - jun
+  - jul
+  - aug
+  - sep
+  - oct
+  - nov
+  - dec
+datetime:
+  dtype: datetime64[ns]
+  hasna: false
+  dunit: date_datetime
+pattern:
+  dtype: object
+  hasna: false
+  dunit: date_pattern
+  pattern: '%Y-%d-%m'
+week0:
+  dtype: int64
+  hasna: false
+  dunit: date_week_0_start
+week1:
+  dtype: object
+  hasna: false
+  dunit: date_week_1_start
+day:
+  dtype: int64
+  hasna: false
+  dunit: date_day
